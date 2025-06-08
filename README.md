@@ -55,6 +55,11 @@ O login é necessário para acessar as funcionalidades do sistema.
 Após rodar o projeto, o sistema pode ser acessado em:  
 🔗 [http://localhost:9090](http://localhost:9090)
 
+## 🌍 Links do videos
+Picht https://www.youtube.com/watch?v=ErSV59dXg8I
+Explicação do codigo https://www.youtube.com/watch?v=E1APcijigdU&t=6s
+
+
 ## 🧪 Testes
 
 - Testes unitários para lógica de negócios (serviços).
