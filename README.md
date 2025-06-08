@@ -75,3 +75,10 @@ O sistema detecta automaticamente o idioma do navegador e adapta os rótulos/tex
    ```bash
    git clone https://github.com/seuusuario/climax.git
    cd climax
+## ✨ Autor
+
+Desenvolvido por Gustavo Rocha Caxias RM: 553310, 
+Macauly Vivaldo da Silva RM: 553350,
+Daniel Bezerra da Silva Melo RM: 553792🚀  
+Aluno do curso de Análise e Desenvolvimento de Sistemas  
+RM: 553310
