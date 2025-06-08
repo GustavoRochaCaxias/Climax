@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Lista de Tipos de Ocorrência</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #222;
+            color: #eee;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #00bcd4;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 60vw;
+            max-width: 600px;
+            border-collapse: collapse;
+            background: #333;
+            color: #eee;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #00bcd4aa;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #444;
+            text-align: left;
+        }
+        th {
+            background-color: #00bcd4;
+            color: #000;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #555;
+        }
+        a.btn-voltar {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #00bcd4;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+            align-self: center;
+        }
+        a.btn-voltar:hover {
+            background-color: #0097a7;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Lista de Tipos de Ocorrência</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome do Tipo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="tipo : ${tipos}">
+        <td th:text="${tipo.idTipo}">1</td>
+        <td th:text="${tipo.nomeTipo}">Nome do tipo</td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/" class="btn-voltar">Voltar ao Dashboard</a>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="#{dashboard.title}">Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #222;
+            color: #eee;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #00bcd4;
+        }
+        form.lang-selector {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #333;
+            padding: 6px 10px;
+            border-radius: 6px;
+            box-shadow: 0 0 6px #000;
+            z-index: 1000;
+        }
+        form.lang-selector select {
+            width: auto;
+            padding: 4px 8px;
+            border: none;
+            border-radius: 4px;
+            background: #444;
+            color: #eee;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+        form.lang-selector select:hover,
+        form.lang-selector select:focus {
+            background: #555;
+            outline: none;
+        }
+        hr {
+            width: 100%;
+            max-width: 400px;
+            border: 0;
+            border-top: 1px solid #444;
+            margin-bottom: 30px;
+        }
+        div.links {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        div.links a {
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            background-color: #00bcd4;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        div.links a:hover {
+            background-color: #0097a7;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<h1 th:text="${#messages.msg('dashboard.welcome')}">Bem-vindo, Usuário!</h1>
+
+<form class="lang-selector" method="get" action="">
+    <label for="lang-select" style="display:none;">Selecionar idioma</label>
+    <select id="lang-select" name="lang" onchange="this.form.submit()">
+        <option value="pt" th:selected="${#locale.language == 'pt'}">Português</option>
+        <option value="en" th:selected="${#locale.language == 'en'}">English</option>
+    </select>
+</form>
+
+<hr/>
+
+<div class="links">
+    <a th:href="@{/usuarios/novo}" th:text="#{dashboard.registerUser}">Cadastrar Usuário</a>
+    <a th:href="@{/ocorrencias/novo}" th:text="#{dashboard.report}">Relatar Ocorrência</a>
+    <a th:href="@{/ocorrencias/listar}" th:text="#{dashboard.view}">Ver Ocorrências</a>
+    <a th:href="@{/enderecos}" th:text="#{dashboard.addresses}">Ver Endereços</a>
+    <a th:href="@{/tipoOcorrencia}" th:text="#{dashboard.viewo}">Ver Tipos de Ocorrência</a>
+    <a th:href="@{/chat}"th:text="#{dashboard.ia}">Conversar com a IA</a>
+</div>
+
+</body>
+</html>

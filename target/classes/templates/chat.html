@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Chat IA</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <style>
+        /* Estilo base reaproveitado */
+        body {
+            font-family: Arial, sans-serif;
+            background: #222;
+            color: #eee;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #00bcd4;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            border-radius: 6px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #00bcd4;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0097a7;
+            color: #fff;
+        }
+
+        .response {
+            margin-top: 20px;
+            max-width: 400px;
+            background: #333;
+            padding: 15px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Converse com a IA</h1>
+
+<form th:action="@{/chat}" method="post">
+    <input type="text" name="mensagem" placeholder="Digite sua pergunta..." required />
+    <button type="submit">Enviar</button>
+</form>
+
+<div class="response" th:if="${resposta}">
+    <strong>Resposta da IA:</strong>
+    <p th:text="${resposta}"></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Relatar Ocorrência</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #222;
+            color: #eee;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #00bcd4;
+            margin-bottom: 20px;
+        }
+        form {
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 0 10px #000;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        textarea,
+        input[type="datetime-local"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border-radius: 4px;
+            border: none;
+            font-size: 1rem;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        button {
+            background-color: #00bcd4;
+            color: #000;
+            border: none;
+            padding: 12px 20px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0097a7;
+            color: #fff;
+        }
+        .btn-cancel {
+            background-color: #555;
+            margin-left: 10px;
+        }
+        .btn-cancel:hover {
+            background-color: #333;
+            color: #eee;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+<body>
+<h1>Relatar Ocorrência</h1>
+
+<form th:action="@{/ocorrencias/salvar}" method="post" th:object="${ocorrencia}">
+    <input type="hidden" th:field="*{id}" />
+
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" th:field="*{titulo}" placeholder="Título da ocorrência" required />
+
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" th:field="*{descricao}" placeholder="Descrição detalhada" required></textarea>
+
+    <label for="dataOcorrencia">Data e hora da ocorrência:</label>
+    <input type="datetime-local" id="dataOcorrencia" th:field="*{dataOcorrencia}" required />
+
+    <label for="idUsuario">ID Usuário:</label>
+    <input type="number" id="idUsuario" th:field="*{idUsuario}" required />
+
+    <label for="idEndereco">ID Endereço:</label>
+    <input type="number" id="idEndereco" th:field="*{idEndereco}" required />
+
+    <label for="idTipo">ID Tipo:</label>
+    <input type="number" id="idTipo" th:field="*{idTipo}" required />
+
+    <div class="btn-group">
+        <button type="submit">Salvar</button>
+        <a th:href="@{/dashboard}" class="btn-cancel">Cancelar</a>
+    </div>
+</form>
+
+</body>
+</html>

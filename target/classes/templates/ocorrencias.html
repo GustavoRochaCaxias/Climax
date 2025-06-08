@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="#{ocorrencia.form.title}">Relatar Ocorrência Climática</title>
+    <style>
+        body {
+            background: #222;
+            color: #eee;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+        form {
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #000;
+            width: 100%;
+            max-width: 600px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            background: #444;
+            color: #eee;
+            border: none;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            background: #00bcd4;
+            border: none;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0097a7;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<form th:action="@{/ocorrencias/salvar}" th:object="${ocorrencia}" method="post">
+    <label>Título:</label>
+    <input type="text" th:field="*{titulo}" required />
+
+    <label>Descrição:</label>
+    <textarea th:field="*{descricao}" required></textarea>
+
+    <label>Data e Hora:</label>
+    <input type="datetime-local" th:field="*{dataOcorrencia}" required />
+
+    <label>ID do Usuário:</label>
+    <input type="number" th:field="*{idUsuario}" required />
+
+    <label>ID do Endereço:</label>
+    <input type="number" th:field="*{idEndereco}" required />
+
+    <label>ID do Tipo de Ocorrência:</label>
+    <input type="number" th:field="*{idTipo}" required />
+
+    <button type="submit">Salvar Ocorrência</button>
+</form>
+
+
+</body>
+</html>

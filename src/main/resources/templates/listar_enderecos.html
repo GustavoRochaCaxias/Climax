@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Endereços</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #222;
+        color: #eee;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        position: relative;
+    }
+    h1 {
+        margin-bottom: 20px;
+        color: #00bcd4;
+    }
+    form.lang-selector {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: #333;
+        padding: 6px 10px;
+        border-radius: 6px;
+        box-shadow: 0 0 6px #000;
+        z-index: 1000;
+    }
+    form.lang-selector select {
+        width: auto;
+        padding: 4px 8px;
+        border: none;
+        border-radius: 4px;
+        background: #444;
+        color: #eee;
+        font-size: 0.9rem;
+        cursor: pointer;
+    }
+    form.lang-selector select:hover,
+    form.lang-selector select:focus {
+        background: #555;
+        outline: none;
+    }
+    hr {
+        width: 100%;
+        max-width: 400px;
+        border: 0;
+        border-top: 1px solid #444;
+        margin-bottom: 30px;
+    }
+    div.links {
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    div.links a {
+        text-align: center;
+        padding: 12px;
+        border-radius: 6px;
+        background-color: #00bcd4;
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+    div.links a:hover {
+        background-color: #0097a7;
+        color: #fff;
+    }
+    table {
+        width: 90vw;
+        max-width: 900px;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+        background: #333;
+        color: #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 10px #00bcd4aa;
+    }
+    th, td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #444;
+        text-align: left;
+    }
+    th {
+        background-color: #00bcd4;
+        color: #000;
+        font-weight: bold;
+    }
+    tr:hover {
+        background-color: #555;
+        cursor: default;
+    }
+    .btn-voltar {
+        align-self: center;
+        padding: 12px 25px;
+        background-color: #00bcd4;
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+    }
+    .btn-voltar:hover {
+        background-color: #0097a7;
+        color: #fff;
+    }
+    .actions {
+        display: flex;
+        gap: 8px;
+    }
+    .actions a {
+        padding: 6px 10px;
+        border-radius: 4px;
+        background-color: #00bcd4;
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+    .actions a:hover {
+        background-color: #0097a7;
+        color: #fff;
+    }
+  </style>
+</head>
+<body>
+<h2>Endereços Cadastrados</h2>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Rua</th>
+    <th>Número</th>
+    <th>Bairro</th>
+    <th>CEP</th>
+    <th>Cidade</th>
+    <th>Estado</th>
+    <th>País</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="endereco : ${enderecos}">
+    <td th:text="${endereco.id}">1</td>
+    <td th:text="${endereco.rua}">Exemplo Rua</td>
+    <td th:text="${endereco.numero}">123</td>
+    <td th:text="${endereco.bairro}">Centro</td>
+    <td th:text="${endereco.cep}">00000-000</td>
+    <td th:text="${endereco.localizacao.cidade}">São Paulo</td>
+    <td th:text="${endereco.localizacao.estado}">SP</td>
+    <td th:text="${endereco.localizacao.pais}">Brasil</td>
+  </tr>
+  </tbody>
+</table>
+
+<br>
+<a th:href="@{/dashboard}">Voltar à Dashboard</a>
+</body>
+</html>

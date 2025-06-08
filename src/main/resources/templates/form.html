@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="#{usuario.form.title}">Cadastro de Usuário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #222;
+            color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            background: #333;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px #000;
+            width: 300px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type=text], input[type=email], input[type=password] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 4px;
+            background: #444;
+            color: #eee;
+        }
+        button {
+            margin-top: 15px;
+            width: 100%;
+            background: #00bcd4;
+            border: none;
+            padding: 10px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: #0097a7;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<form th:action="@{/usuarios/salvar}" th:object="${usuario}" method="post">
+
+    <h2 th:text="#{usuario.form.title}">Cadastro de Usuário</h2>
+
+    <label for="nome" th:text="#{usuario.nome}">Nome</label>
+    <input type="text" id="nome" th:field="*{nome}" placeholder="Seu nome" required />
+
+    <label for="email" th:text="#{usuario.email}">E-mail</label>
+    <input type="email" id="email" th:field="*{email}" placeholder="email@exemplo.com" required />
+
+    <label for="senha" th:text="#{usuario.senha}">Senha</label>
+    <input type="password" id="senha" th:field="*{senha}" placeholder="Sua senha" required />
+
+    <button type="submit" th:text="#{usuario.form.submit}">Salvar</button>
+</form>
+
+</body>
+</html>
